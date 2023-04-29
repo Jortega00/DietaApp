@@ -5,15 +5,12 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.add
-import androidx.fragment.app.commit
-import com.google.android.material.bottomnavigation.BottomNavigationMenuView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.jortega.dietaapp.dieta.DietFragment
 import com.jortega.dietaapp.porciones.PortionsFragment
-import com.jortega.porciones.Nutriente
+import com.jortega.dietaapp.porciones.Nutriente
 
 class MainActivity : AppCompatActivity() {
 
@@ -92,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     private fun getList(): List<Nutriente> {
         val nutListJson = sharedPreferences.getString(PREF_NAME, null)
         //val gson = Gson()
-        val tipoNutList = object : TypeToken<List<Nutriente>>() {}.type
-        return Gson().fromJson(nutListJson, tipoNutList) ?: nutList
+        val nutListType = object : TypeToken<List<Nutriente>>() {}.type
+        return Gson().fromJson(nutListJson, nutListType) ?: nutList
     }
 }

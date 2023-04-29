@@ -1,14 +1,9 @@
 package com.jortega.dietaapp.porciones
 
 import android.app.Dialog
-import android.content.Context
-import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -16,13 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.jortega.dietaapp.MainActivity
 import com.jortega.dietaapp.MainActivity.Companion.nutList
 import com.jortega.dietaapp.R
-import com.jortega.porciones.Nutriente
-import com.jortega.porciones.NutrienteAdapter
 
 class PortionsFragment : Fragment(R.layout.fragment_portions) {
 
@@ -65,8 +55,8 @@ class PortionsFragment : Fragment(R.layout.fragment_portions) {
         val nut = nutList[position]
 
         val dialog = context?.let {
-            Dialog(it).also {
-                it.setContentView(R.layout.item_alert)
+            Dialog(it).also { dialog ->
+                dialog.setContentView(R.layout.item_alert)
             }
         }
 

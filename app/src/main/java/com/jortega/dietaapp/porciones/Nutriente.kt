@@ -1,4 +1,4 @@
-package com.jortega.porciones
+package com.jortega.dietaapp.porciones
 
 import java.io.Serializable
 
